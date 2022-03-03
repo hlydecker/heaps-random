@@ -1,2 +1,4 @@
 # Ignore anything in the testing folder for now
 testing/*
+
+*.DS_Store
