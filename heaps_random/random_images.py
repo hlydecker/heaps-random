@@ -18,11 +18,25 @@ def generate_random_image(width, height):
     return img
 
 # Get the number of images to generate
-num_images = int(input("Enter the number of images to generate: "))
+while True:
+    try:
+        num_images = int(input("How many kawaii images would you like me to generate, desu~? OwO: "))
+        if num_images < 1:
+            raise ValueError()
+        break
+    except ValueError:
+        print("Nyaa~! Please enter a positive integer value, nya! (´・ω・`)")
 
 # Get the image size
-width = int(input("Enter the image width: "))
-height = int(input("Enter the image height: "))
+while True:
+    try:
+        width = int(input("Please enter the width of the kawaii image, nya~ OwO: "))
+        height = int(input("Please enter the height of the kawaii image, nya~ OwO: "))
+        if width < 1 or height < 1:
+            raise ValueError()
+        break
+    except ValueError:
+        print("Oopsie! The image dimensions must be positive integers, nya~ (◕ᴥ◕)")
 
 # Generate the images
 for i in range(num_images):
@@ -30,6 +44,9 @@ for i in range(num_images):
     img = generate_random_image(width, height)
 
     # Save the image to file
-    img.save("random_image_{}.png".format(i))
+    filename = "kawaii_{}.png".format(i)
+    img.save(filename)
+    print("A kawaii image has been generated and saved as {}".format(filename))
 
-print("{} random images have been generated with the specified size".format(num_images))
+print("All done! I hope you enjoy your super cute kawaii images, nya~! (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧")
+
